@@ -53,12 +53,55 @@ class TransportLayer:
     def register_below(self, layer):
         self.network_layer = layer
 
+    def mod_seqnum(self, num):
+        """Helper to keep sequence numbers within the sequence number space."""
+        return num % self.seqnum_space 
+    
+    def in_window(self, seqnum, base, N):
+        """Helper to check if a sequence number is within the window [base, base + N) modulo the sequence space."""
+        return (seqnum - base) % self.seqnum_space < N
+
+    def checksum(self, data):
+        """Compute a simple checksum."""
+        sum = 0
+        for i in data:
+            sum += 1
+        return sum 
+
     def from_app(self, binary_data): # Sending data down the stack
-        packet = Packet(binary_data)
+        # packet = Packet(binary_data)
 
-        # Implement me!
+        # 1) Window check (half-open [base, base+N), modulo)
+        if not self.in_window(self.next_seqnum, self.base, self.send_window):
+            # No space leading to queue payload for later
+            self.app_queue.append(binary_data)
+            if self.logger:
+                self.logger.debug(f"Application window full, the queued {len(self.app_queue)}, Application base = {self.base}, next seqnum = {self.next_seqnum}")
+            return
 
-        self.network_layer.send(packet)
+        # 2) Build DATA packet for next sequence number 
+        checksum = 0 # TODO: Placeholder for checksum calculation
+        packet = Packet(binary_data, packet.self.next_seqnum, -1, checksum) # Fill in seqnum, is_ack = False, payload
+
+        # 3) Send and buffer for potential retransmission
+        self.network_layer.send(copy(packet))
+        self.sent += 1
+        self.send_buffer[self.next_seqnum] = packet
+        if self.logger:
+            in_process = (self.next_seqnum - self.base) % self.seqnum_space + 1
+            self.logger.debug(f"Sent packet {packet}. Base = {self.base}, next seqnum = {self.next_seqnum}, in-process = {in_process}, Window = {self.send_window}")
+
+        # 4) Start the single timer if the window was empty before this send
+        if self.base == self.next_seqnum and not self.timer_active:
+            self.reset_timer(self.timeout_action) # TODO: implement timeout_action
+            self.timer_active = True
+            if self.logger:
+                self.logger.debug(f"Starting timer at seqnum {self.base}")
+
+        # 5) Advance next_seqnum (modulo the sequence number space)
+        self.next_seqnum = self.mod_seqnum(self.next_seqnum + 1)
+
+        # self.network_layer.send(packet)
 
     def from_network(self, packet): # Receiving data up the stack
         self.application_layer.receive_from_transport(packet.data)
