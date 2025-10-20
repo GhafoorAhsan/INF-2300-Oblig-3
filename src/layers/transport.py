@@ -1,7 +1,7 @@
 from copy import copy
 from threading import Timer
 
-from packet import Packet
+from packet import Packet 
 
 from collections import deque
 
@@ -29,10 +29,10 @@ class TransportLayer:
 
         # Receiver state for Go-Back-N
         self.expected_seqnum = 0  # Receiver’s next in-order seq to accept/deliver.
-        self.last_ack_sent = 0  # Cumulative ACK value = next expected seq 
+        self.last_ack_send = 0  # Cumulative ACK value = next expected seq 
 
         # Statistics
-        self.sent = 0  # Total number of packets sent
+        self.send = 0  # Total number of packets send
         self.retransmitted = 0  # Total number of packets retransmitted
         self.timeout_num = 0  # Total number of timeouts
         self.duplicate_acks = 0  # Count of received duplicate ACKs at the sender
@@ -61,61 +61,176 @@ class TransportLayer:
         """Helper to check if a sequence number is within the window [base, base + N) modulo the sequence space."""
         return (seqnum - base) % self.seqnum_space < N
 
-    def checksum(self, data):
-        """Compute a simple checksum."""
-        sum = 0
-        for i in data:
-            sum += 1
-        return sum 
+    def dbg(self, msg):
+        if self.logger:
+            self.logger.debug(msg)
 
+    def st(self):
+        # short state string
+        return f"base={self.base} n={self.next_seqnum} inbuf={len(self.send_buffer)}"
+    
     def from_app(self, binary_data): # Sending data down the stack
-        # packet = Packet(binary_data)
 
-        # 1) Window check (half-open [base, base+N), modulo)
-        if not self.in_window(self.next_seqnum, self.base, self.send_window):
-            # No space leading to queue payload for later
+        # Window guard (robust: use actual inflight count)
+        if len(self.send_buffer) >= self.send_window:
             self.app_queue.append(binary_data)
-            if self.logger:
-                self.logger.debug(f"Application window full, the queued {len(self.app_queue)}, Application base = {self.base}, next seqnum = {self.next_seqnum}")
+            self.dbg(f"APP queue (full) q={len(self.app_queue)} | {self.st()}")
             return
 
-        # 2) Build DATA packet for next sequence number 
-        checksum = 0 # TODO: Placeholder for checksum calculation
-        packet = Packet(binary_data, packet.self.next_seqnum, -1, checksum) # Fill in seqnum, is_ack = False, payload
+        # Window guard
+        if not self.in_window(self.next_seqnum, self.base, self.send_window):
+            self.app_queue.append(binary_data)
+            self.dbg(f"APP queue (win) q={len(self.app_queue)} | {self.st()}")
+            return 
+        
+        assert self.in_window(self.next_seqnum, self.base, self.send_window)
 
-        # 3) Send and buffer for potential retransmission
-        self.network_layer.send(copy(packet))
-        self.sent += 1
-        self.send_buffer[self.next_seqnum] = packet
-        if self.logger:
-            in_process = (self.next_seqnum - self.base) % self.seqnum_space + 1
-            self.logger.debug(f"Sent packet {packet}. Base = {self.base}, next seqnum = {self.next_seqnum}, in-process = {in_process}, Window = {self.send_window}")
+        old_next = self.next_seqnum
+        self.dbg(f"BUILD seq={old_next} | {self.st()}")
 
-        # 4) Start the single timer if the window was empty before this send
-        if self.base == self.next_seqnum and not self.timer_active:
-            self.reset_timer(self.timeout_action) # TODO: implement timeout_action
-            self.timer_active = True
-            if self.logger:
-                self.logger.debug(f"Starting timer at seqnum {self.base}")
+        
+        # Build DATA 
+        pkt = Packet.make_data(old_next, binary_data)
 
-        # 5) Advance next_seqnum (modulo the sequence number space)
-        self.next_seqnum = self.mod_seqnum(self.next_seqnum + 1)
+        assert pkt.seqnum == old_next, f"Packet seq mismatch: built {pkt.seqnum}, expected {old_next}"
 
-        # self.network_layer.send(packet)
+        was_empty = (len(self.send_buffer) == 0)
+
+        self.send_buffer[old_next] = pkt
+
+        if was_empty and not self.timer_active:
+            self.reset_timer(self.on_timeout)
+            self.dbg(f"TIMER start | {self.st()}")
+
+        # Send + Buffer
+        self.dbg(f"SEND data seq={old_next} | {self.st()}")
+        self.network_layer.send(copy(pkt))
+        self.send += 1
+
+        # Post-send ghost drop: if this seq got cumulatively ACKed already, remove it
+        ahead = (old_next - self.base) % self.seqnum_space
+        inflight_now = (self.next_seqnum - self.base) % self.seqnum_space
+        if inflight_now > 0 and ahead >= inflight_now:
+            self.send_buffer.pop(old_next, None)
+            self.dbg(f"GHOST-DROP seq={old_next}")
+            if not self.send_buffer and self.timer_active:
+                self.stop_timer()
+
+
+        # Advance next seqnum using the snapshot
+        self.next_seqnum = self.mod_seqnum(old_next + 1)
+
+        inflight_after = len(self.send_buffer)
+        assert inflight_after <= self.send_window
+        assert self.timer_active == (inflight_after > 0)
+
+    def ack_advances(self, acknum: int) -> bool:
+        """True iff cumulative ACK 'acknum' moves base forward modulo the seq space."""
+        dist = (acknum - self.base) % self.seqnum_space
+        return 0 < dist <= self.send_window
 
     def from_network(self, packet): # Receiving data up the stack
-        self.application_layer.receive_from_transport(packet.data)
-        # Implement me!
+        # ACK --> sender side 
+        if packet.acknum >= 0:
+            if packet.is_corrupt():
+                self.rx_corrupted_acks += 1
+                self.dbg("RX ACK corrupt → ignore")
+                return 
+            
+            acknum = packet.acknum % self.seqnum_space
+            if self.ack_advances(acknum):
+                # Slide window cumulatively up to (but not including) acknum
+                self.dbg(f"ACK advance → {acknum} | {self.st()}")
+                seq = self.base
+                while seq != acknum:
+                    self.send_buffer.pop(seq, None)
+                    seq = self.mod_seqnum(seq + 1)
+                self.base = acknum
+
+                # Timer management
+                if not self.send_buffer:
+                    self.next_seqnum = self.base
+                    self.stop_timer()
+                else:
+                    self.reset_timer(self.on_timeout)
+
+                # Drain app queue while there is space 
+                while self.app_queue and self.in_window(self.next_seqnum, self.base, self.send_window):
+                    payload = self.app_queue.popleft()
+                    self.from_app(payload)
+
+                inflight = len(self.send_buffer)
+                assert inflight <= self.send_window
+                assert self.timer_active == (inflight > 0)
+            
+            else:
+                self.duplicate_acks += 1
+                self.dbg(f"ACK dup  = {acknum} | {self.st()}")
+            return 
+        
+        # Data -> receiver side 
+        # DATA packets use acknum == -1
+        if packet.is_corrupt():
+            self.rx_corrupted_data += 1
+            self.last_ack_send = self.expected_seqnum
+            # Re-ACK last in-order (expected_seqnum)
+            ack = Packet.make_ack(self.expected_seqnum)
+            self.network_layer.send(ack)
+            self.dbg(f"RX DATA corrupt → reACK {self.expected_seqnum}")
+            return
+        
+        seq = packet.seqnum % self.seqnum_space
+        if seq == self.expected_seqnum:
+            # Deliver in-order
+            if self.application_layer:
+                self.application_layer.receive_from_transport(packet.data)
+
+            # Advance receiver state
+            self.expected_seqnum = self.mod_seqnum(self.expected_seqnum + 1)
+            self.last_ack_send = self.expected_seqnum
+
+            # Send cumulative ACK (next expected)
+            ack = Packet.make_ack(self.expected_seqnum)
+            self.network_layer.send(ack)
+            self.dbg(f"DELIVER seq={seq} → exp={self.expected_seqnum}")
+        else:
+            # Out-of-order or duplicate -> drop and re-ACK last in-order (expected_seqnum)
+            ack = Packet.make_ack(self.last_ack_send)
+            self.network_layer.send(ack)
+            self.dbg(f"DROP oo seq={seq} → reACK {self.last_ack_send}")
+
 
     def reset_timer(self, callback, *args):
-        # This is a safety-wrapper around the Timer-objects, which are
-        # separate threads. If we have a timer-object already,
-        # stop it before making a new one so we don't flood
-        # the system with threads!
         if self.timer:
             if self.timer.is_alive():
                 self.timer.cancel()
-        # callback(a function) is called with *args as arguments
-        # after self.timeout seconds.
-        self.timer = Timer(self.timeout, callback, *args)
+        self.timer = Timer(self.timeout, callback, args=args)
         self.timer.start()
+        self.timer_active = True
+
+    def stop_timer(self):
+        if self.timer:
+            if self.timer.is_alive():
+                self.timer.cancel()
+        self.timer_active = False 
+        self.timer = None
+        self.dbg("TIMER stop")
+
+
+    def on_timeout(self):
+        self.timeout_num += 1
+        self.dbg(f"TIMEOUT → RTX {self.base}..{self.next_seqnum} | {self.st()}")
+        seq = self.base 
+        while seq != self.next_seqnum:
+            pkt = self.send_buffer.get(seq)
+            if pkt is not None:
+                self.network_layer.send(copy(pkt))
+                self.retransmitted += 1
+            seq = self.mod_seqnum(seq + 1)
+        
+        if self.send_buffer:
+            self.reset_timer(self.on_timeout)
+        else:
+            self.stop_timer()
+
+        assert self.timer_active == (len(self.send_buffer) > 0)

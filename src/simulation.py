@@ -54,4 +54,6 @@ if __name__ == "__main__":
         seed(RANDOM_SEED)
     sim = Sim()
     sim.run()
+    print("alice:", sim.alice.original_data)
+    print("bob:  ", sim.bob.received)
     print("Finished!")

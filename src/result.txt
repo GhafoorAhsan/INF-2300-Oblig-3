@@ -1,0 +1,80 @@
+PACKET_NUM = 10
+PACKET_SIZE = 4
+RANDOM_SEED = 84737869
+RANDOM_RUN = False
+DROP_CHANCE = 0.0
+CORRUPT_CHANCE = 0.0
+DELAY_CHANCE = 0.0
+DELAY_AMOUNT = 0.5
+
+[ Alice -    DEBUG] transport.py: 66 - BUILD seq=0 | base=0 n=0 inbuf=0
+[ Alice -    DEBUG] transport.py: 66 - TIMER start | base=0 n=0 inbuf=1
+[ Alice -    DEBUG] transport.py: 66 - SEND data seq=0 | base=0 n=0 inbuf=1
+[ Alice -    DEBUG] transport.py: 66 - ACK advance → 1 | base=0 n=0 inbuf=1
+[ Alice -    DEBUG] transport.py: 66 - TIMER stop
+
+[   Bob -    DEBUG] transport.py: 66 - DELIVER seq=0 → exp=1
+[ Alice -    DEBUG] transport.py: 66 - BUILD seq=1 | base=1 n=1 inbuf=0
+[ Alice -    DEBUG] transport.py: 66 - TIMER start | base=1 n=1 inbuf=1
+[ Alice -    DEBUG] transport.py: 66 - SEND data seq=1 | base=1 n=1 inbuf=1
+[ Alice -    DEBUG] transport.py: 66 - ACK advance → 2 | base=1 n=1 inbuf=1
+[ Alice -    DEBUG] transport.py: 66 - TIMER stop
+
+[   Bob -    DEBUG] transport.py: 66 - DELIVER seq=1 → exp=2
+[ Alice -    DEBUG] transport.py: 66 - BUILD seq=2 | base=2 n=2 inbuf=0
+[ Alice -    DEBUG] transport.py: 66 - TIMER start | base=2 n=2 inbuf=1
+[ Alice -    DEBUG] transport.py: 66 - SEND data seq=2 | base=2 n=2 inbuf=1
+[ Alice -    DEBUG] transport.py: 66 - ACK advance → 3 | base=2 n=2 inbuf=1
+[ Alice -    DEBUG] transport.py: 66 - TIMER stop
+
+[   Bob -    DEBUG] transport.py: 66 - DELIVER seq=2 → exp=3
+[ Alice -    DEBUG] transport.py: 66 - BUILD seq=3 | base=3 n=3 inbuf=0
+[ Alice -    DEBUG] transport.py: 66 - TIMER start | base=3 n=3 inbuf=1
+[ Alice -    DEBUG] transport.py: 66 - SEND data seq=3 | base=3 n=3 inbuf=1
+[ Alice -    DEBUG] transport.py: 66 - ACK advance → 4 | base=3 n=3 inbuf=1
+[ Alice -    DEBUG] transport.py: 66 - TIMER stop
+
+[   Bob -    DEBUG] transport.py: 66 - DELIVER seq=3 → exp=4
+[ Alice -    DEBUG] transport.py: 66 - BUILD seq=4 | base=4 n=4 inbuf=0
+[ Alice -    DEBUG] transport.py: 66 - TIMER start | base=4 n=4 inbuf=1
+[ Alice -    DEBUG] transport.py: 66 - SEND data seq=4 | base=4 n=4 inbuf=1
+[ Alice -    DEBUG] transport.py: 66 - ACK advance → 5 | base=4 n=4 inbuf=1
+[ Alice -    DEBUG] transport.py: 66 - TIMER stop
+
+[   Bob -    DEBUG] transport.py: 66 - DELIVER seq=4 → exp=5
+[ Alice -    DEBUG] transport.py: 66 - BUILD seq=5 | base=5 n=5 inbuf=0
+[ Alice -    DEBUG] transport.py: 66 - TIMER start | base=5 n=5 inbuf=1
+[ Alice -    DEBUG] transport.py: 66 - SEND data seq=5 | base=5 n=5 inbuf=1
+[ Alice -    DEBUG] transport.py: 66 - ACK advance → 6 | base=5 n=5 inbuf=1
+[ Alice -    DEBUG] transport.py: 66 - TIMER stop
+
+[   Bob -    DEBUG] transport.py: 66 - DELIVER seq=5 → exp=6
+[ Alice -    DEBUG] transport.py: 66 - BUILD seq=6 | base=6 n=6 inbuf=0
+[ Alice -    DEBUG] transport.py: 66 - TIMER start | base=6 n=6 inbuf=1
+[ Alice -    DEBUG] transport.py: 66 - SEND data seq=6 | base=6 n=6 inbuf=1
+[ Alice -    DEBUG] transport.py: 66 - ACK advance → 7 | base=6 n=6 inbuf=1
+[ Alice -    DEBUG] transport.py: 66 - TIMER stop
+
+[   Bob -    DEBUG] transport.py: 66 - DELIVER seq=6 → exp=7
+[ Alice -    DEBUG] transport.py: 66 - BUILD seq=7 | base=7 n=7 inbuf=0
+[ Alice -    DEBUG] transport.py: 66 - TIMER start | base=7 n=7 inbuf=1
+[ Alice -    DEBUG] transport.py: 66 - SEND data seq=7 | base=7 n=7 inbuf=1
+[ Alice -    DEBUG] transport.py: 66 - ACK advance → 8 | base=7 n=7 inbuf=1
+[ Alice -    DEBUG] transport.py: 66 - TIMER stop
+
+[   Bob -    DEBUG] transport.py: 66 - DELIVER seq=7 → exp=8
+[ Alice -    DEBUG] transport.py: 66 - BUILD seq=8 | base=8 n=8 inbuf=0
+[ Alice -    DEBUG] transport.py: 66 - TIMER start | base=8 n=8 inbuf=1
+[ Alice -    DEBUG] transport.py: 66 - SEND data seq=8 | base=8 n=8 inbuf=1
+[ Alice -    DEBUG] transport.py: 66 - ACK advance → 9 | base=8 n=8 inbuf=1
+[ Alice -    DEBUG] transport.py: 66 - TIMER stop
+
+[   Bob -    DEBUG] transport.py: 66 - DELIVER seq=8 → exp=9
+[ Alice -    DEBUG] transport.py: 66 - BUILD seq=9 | base=9 n=9 inbuf=0
+[ Alice -    DEBUG] transport.py: 66 - TIMER start | base=9 n=9 inbuf=1
+[ Alice -    DEBUG] transport.py: 66 - SEND data seq=9 | base=9 n=9 inbuf=1
+[ Alice -    DEBUG] transport.py: 66 - ACK advance → 0 | base=9 n=9 inbuf=1
+[ Alice -    DEBUG] transport.py: 66 - TIMER stop
+
+[   Bob -    DEBUG] transport.py: 66 - DELIVER seq=9 → exp=0
+Finished!
