@@ -7,74 +7,610 @@ CORRUPT_CHANCE = 0.0
 DELAY_CHANCE = 0.0
 DELAY_AMOUNT = 0.5
 
-[ Alice -    DEBUG] transport.py: 66 - BUILD seq=0 | base=0 n=0 inbuf=0
-[ Alice -    DEBUG] transport.py: 66 - TIMER start | base=0 n=0 inbuf=1
-[ Alice -    DEBUG] transport.py: 66 - SEND data seq=0 | base=0 n=0 inbuf=1
-[ Alice -    DEBUG] transport.py: 66 - ACK advance → 1 | base=0 n=0 inbuf=1
-[ Alice -    DEBUG] transport.py: 66 - TIMER stop
-
-[   Bob -    DEBUG] transport.py: 66 - DELIVER seq=0 → exp=1
-[ Alice -    DEBUG] transport.py: 66 - BUILD seq=1 | base=1 n=1 inbuf=0
-[ Alice -    DEBUG] transport.py: 66 - TIMER start | base=1 n=1 inbuf=1
-[ Alice -    DEBUG] transport.py: 66 - SEND data seq=1 | base=1 n=1 inbuf=1
-[ Alice -    DEBUG] transport.py: 66 - ACK advance → 2 | base=1 n=1 inbuf=1
-[ Alice -    DEBUG] transport.py: 66 - TIMER stop
-
-[   Bob -    DEBUG] transport.py: 66 - DELIVER seq=1 → exp=2
-[ Alice -    DEBUG] transport.py: 66 - BUILD seq=2 | base=2 n=2 inbuf=0
-[ Alice -    DEBUG] transport.py: 66 - TIMER start | base=2 n=2 inbuf=1
-[ Alice -    DEBUG] transport.py: 66 - SEND data seq=2 | base=2 n=2 inbuf=1
-[ Alice -    DEBUG] transport.py: 66 - ACK advance → 3 | base=2 n=2 inbuf=1
-[ Alice -    DEBUG] transport.py: 66 - TIMER stop
-
-[   Bob -    DEBUG] transport.py: 66 - DELIVER seq=2 → exp=3
-[ Alice -    DEBUG] transport.py: 66 - BUILD seq=3 | base=3 n=3 inbuf=0
-[ Alice -    DEBUG] transport.py: 66 - TIMER start | base=3 n=3 inbuf=1
-[ Alice -    DEBUG] transport.py: 66 - SEND data seq=3 | base=3 n=3 inbuf=1
-[ Alice -    DEBUG] transport.py: 66 - ACK advance → 4 | base=3 n=3 inbuf=1
-[ Alice -    DEBUG] transport.py: 66 - TIMER stop
-
-[   Bob -    DEBUG] transport.py: 66 - DELIVER seq=3 → exp=4
-[ Alice -    DEBUG] transport.py: 66 - BUILD seq=4 | base=4 n=4 inbuf=0
-[ Alice -    DEBUG] transport.py: 66 - TIMER start | base=4 n=4 inbuf=1
-[ Alice -    DEBUG] transport.py: 66 - SEND data seq=4 | base=4 n=4 inbuf=1
-[ Alice -    DEBUG] transport.py: 66 - ACK advance → 5 | base=4 n=4 inbuf=1
-[ Alice -    DEBUG] transport.py: 66 - TIMER stop
-
-[   Bob -    DEBUG] transport.py: 66 - DELIVER seq=4 → exp=5
-[ Alice -    DEBUG] transport.py: 66 - BUILD seq=5 | base=5 n=5 inbuf=0
-[ Alice -    DEBUG] transport.py: 66 - TIMER start | base=5 n=5 inbuf=1
-[ Alice -    DEBUG] transport.py: 66 - SEND data seq=5 | base=5 n=5 inbuf=1
-[ Alice -    DEBUG] transport.py: 66 - ACK advance → 6 | base=5 n=5 inbuf=1
-[ Alice -    DEBUG] transport.py: 66 - TIMER stop
-
-[   Bob -    DEBUG] transport.py: 66 - DELIVER seq=5 → exp=6
-[ Alice -    DEBUG] transport.py: 66 - BUILD seq=6 | base=6 n=6 inbuf=0
-[ Alice -    DEBUG] transport.py: 66 - TIMER start | base=6 n=6 inbuf=1
-[ Alice -    DEBUG] transport.py: 66 - SEND data seq=6 | base=6 n=6 inbuf=1
-[ Alice -    DEBUG] transport.py: 66 - ACK advance → 7 | base=6 n=6 inbuf=1
-[ Alice -    DEBUG] transport.py: 66 - TIMER stop
-
-[   Bob -    DEBUG] transport.py: 66 - DELIVER seq=6 → exp=7
-[ Alice -    DEBUG] transport.py: 66 - BUILD seq=7 | base=7 n=7 inbuf=0
-[ Alice -    DEBUG] transport.py: 66 - TIMER start | base=7 n=7 inbuf=1
-[ Alice -    DEBUG] transport.py: 66 - SEND data seq=7 | base=7 n=7 inbuf=1
-[ Alice -    DEBUG] transport.py: 66 - ACK advance → 8 | base=7 n=7 inbuf=1
-[ Alice -    DEBUG] transport.py: 66 - TIMER stop
-
-[   Bob -    DEBUG] transport.py: 66 - DELIVER seq=7 → exp=8
-[ Alice -    DEBUG] transport.py: 66 - BUILD seq=8 | base=8 n=8 inbuf=0
-[ Alice -    DEBUG] transport.py: 66 - TIMER start | base=8 n=8 inbuf=1
-[ Alice -    DEBUG] transport.py: 66 - SEND data seq=8 | base=8 n=8 inbuf=1
-[ Alice -    DEBUG] transport.py: 66 - ACK advance → 9 | base=8 n=8 inbuf=1
-[ Alice -    DEBUG] transport.py: 66 - TIMER stop
-
-[   Bob -    DEBUG] transport.py: 66 - DELIVER seq=8 → exp=9
-[ Alice -    DEBUG] transport.py: 66 - BUILD seq=9 | base=9 n=9 inbuf=0
-[ Alice -    DEBUG] transport.py: 66 - TIMER start | base=9 n=9 inbuf=1
-[ Alice -    DEBUG] transport.py: 66 - SEND data seq=9 | base=9 n=9 inbuf=1
-[ Alice -    DEBUG] transport.py: 66 - ACK advance → 0 | base=9 n=9 inbuf=1
-[ Alice -    DEBUG] transport.py: 66 - TIMER stop
-
-[   Bob -    DEBUG] transport.py: 66 - DELIVER seq=9 → exp=0
+[ Alice -    DEBUG] transport.py: 83 - BUILD seq=0 | base=0 n=0 inbuf=0
+[ Alice -    DEBUG] transport.py: 83 - TIMER start | base=0 n=0 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - SEND data seq=0 | base=0 n=0 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - ACK advance → 1 | base=0 n=0 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - TIMER stop
+[   Bob -    DEBUG] transport.py: 83 - DELIVER seq=0 → exp=1
+[ Alice -    DEBUG] transport.py: 83 - BUILD seq=1 | base=1 n=1 inbuf=0
+[ Alice -    DEBUG] transport.py: 83 - TIMER start | base=1 n=1 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - SEND data seq=1 | base=1 n=1 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - ACK advance → 2 | base=1 n=1 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - TIMER stop
+[   Bob -    DEBUG] transport.py: 83 - DELIVER seq=1 → exp=2
+[ Alice -    DEBUG] transport.py: 83 - BUILD seq=2 | base=2 n=2 inbuf=0
+[ Alice -    DEBUG] transport.py: 83 - TIMER start | base=2 n=2 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - SEND data seq=2 | base=2 n=2 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - ACK advance → 3 | base=2 n=2 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - TIMER stop
+[   Bob -    DEBUG] transport.py: 83 - DELIVER seq=2 → exp=3
+[ Alice -    DEBUG] transport.py: 83 - BUILD seq=3 | base=3 n=3 inbuf=0
+[ Alice -    DEBUG] transport.py: 83 - TIMER start | base=3 n=3 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - SEND data seq=3 | base=3 n=3 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - ACK advance → 4 | base=3 n=3 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - TIMER stop
+[   Bob -    DEBUG] transport.py: 83 - DELIVER seq=3 → exp=4
+[ Alice -    DEBUG] transport.py: 83 - BUILD seq=4 | base=4 n=4 inbuf=0
+[ Alice -    DEBUG] transport.py: 83 - TIMER start | base=4 n=4 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - SEND data seq=4 | base=4 n=4 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - ACK advance → 5 | base=4 n=4 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - TIMER stop
+[   Bob -    DEBUG] transport.py: 83 - DELIVER seq=4 → exp=5
+[ Alice -    DEBUG] transport.py: 83 - BUILD seq=5 | base=5 n=5 inbuf=0
+[ Alice -    DEBUG] transport.py: 83 - TIMER start | base=5 n=5 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - SEND data seq=5 | base=5 n=5 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - ACK advance → 6 | base=5 n=5 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - TIMER stop
+[   Bob -    DEBUG] transport.py: 83 - DELIVER seq=5 → exp=6
+[ Alice -    DEBUG] transport.py: 83 - BUILD seq=6 | base=6 n=6 inbuf=0
+[ Alice -    DEBUG] transport.py: 83 - TIMER start | base=6 n=6 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - SEND data seq=6 | base=6 n=6 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - ACK advance → 7 | base=6 n=6 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - TIMER stop
+[   Bob -    DEBUG] transport.py: 83 - DELIVER seq=6 → exp=7
+[ Alice -    DEBUG] transport.py: 83 - BUILD seq=7 | base=7 n=7 inbuf=0
+[ Alice -    DEBUG] transport.py: 83 - TIMER start | base=7 n=7 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - SEND data seq=7 | base=7 n=7 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - ACK advance → 8 | base=7 n=7 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - TIMER stop
+[   Bob -    DEBUG] transport.py: 83 - DELIVER seq=7 → exp=8
+[ Alice -    DEBUG] transport.py: 83 - BUILD seq=8 | base=8 n=8 inbuf=0
+[ Alice -    DEBUG] transport.py: 83 - TIMER start | base=8 n=8 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - SEND data seq=8 | base=8 n=8 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - ACK advance → 9 | base=8 n=8 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - TIMER stop
+[   Bob -    DEBUG] transport.py: 83 - DELIVER seq=8 → exp=9
+[ Alice -    DEBUG] transport.py: 83 - BUILD seq=9 | base=9 n=9 inbuf=0
+[ Alice -    DEBUG] transport.py: 83 - TIMER start | base=9 n=9 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - SEND data seq=9 | base=9 n=9 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - ACK advance → 0 | base=9 n=9 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - TIMER stop
+[   Bob -    DEBUG] transport.py: 83 - DELIVER seq=9 → exp=0
+alice: b'KQCKRBWWNCOCOBSUZYNKWLUHPRVYTDQZWINBNHIA'
+bob:   b'KQCKRBWWNCOCOBSUZYNKWLUHPRVYTDQZWINBNHIA'
+[Alice stats] sent=10 rtx=0 timeouts=0 dupACKs=0 corrupt_d=0 corrupt_ack=0
+[Bob   stats] sent=0 rtx=0 timeouts=0 dupACKs=0 corrupt_d=0 corrupt_ack=0
 Finished!
+
+PACKET_NUM = 10
+PACKET_SIZE = 4
+RANDOM_SEED = 84737869
+RANDOM_RUN = False
+DROP_CHANCE = 0.0
+CORRUPT_CHANCE = 0.0
+DELAY_CHANCE = 0.0
+DELAY_AMOUNT = 0.5
+Stop-and-wait sanity (window=1)
+
+[ Alice -    DEBUG] transport.py: 83 - BUILD seq=0 | base=0 n=0 inbuf=0
+[ Alice -    DEBUG] transport.py: 83 - TIMER start | base=0 n=0 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - SEND data seq=0 | base=0 n=0 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - ACK advance → 1 | base=0 n=0 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - TIMER stop
+[   Bob -    DEBUG] transport.py: 83 - DELIVER seq=0 → exp=1
+[ Alice -    DEBUG] transport.py: 83 - BUILD seq=1 | base=1 n=1 inbuf=0
+[ Alice -    DEBUG] transport.py: 83 - TIMER start | base=1 n=1 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - SEND data seq=1 | base=1 n=1 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - ACK advance → 0 | base=1 n=1 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - TIMER stop
+[   Bob -    DEBUG] transport.py: 83 - DELIVER seq=1 → exp=0
+[ Alice -    DEBUG] transport.py: 83 - BUILD seq=0 | base=0 n=0 inbuf=0
+[ Alice -    DEBUG] transport.py: 83 - TIMER start | base=0 n=0 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - SEND data seq=0 | base=0 n=0 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - ACK advance → 1 | base=0 n=0 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - TIMER stop
+[   Bob -    DEBUG] transport.py: 83 - DELIVER seq=0 → exp=1
+[ Alice -    DEBUG] transport.py: 83 - BUILD seq=1 | base=1 n=1 inbuf=0
+[ Alice -    DEBUG] transport.py: 83 - TIMER start | base=1 n=1 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - SEND data seq=1 | base=1 n=1 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - ACK advance → 0 | base=1 n=1 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - TIMER stop
+[   Bob -    DEBUG] transport.py: 83 - DELIVER seq=1 → exp=0
+[ Alice -    DEBUG] transport.py: 83 - BUILD seq=0 | base=0 n=0 inbuf=0
+[ Alice -    DEBUG] transport.py: 83 - TIMER start | base=0 n=0 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - SEND data seq=0 | base=0 n=0 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - ACK advance → 1 | base=0 n=0 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - TIMER stop
+[   Bob -    DEBUG] transport.py: 83 - DELIVER seq=0 → exp=1
+[ Alice -    DEBUG] transport.py: 83 - BUILD seq=1 | base=1 n=1 inbuf=0
+[ Alice -    DEBUG] transport.py: 83 - TIMER start | base=1 n=1 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - SEND data seq=1 | base=1 n=1 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - ACK advance → 0 | base=1 n=1 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - TIMER stop
+[   Bob -    DEBUG] transport.py: 83 - DELIVER seq=1 → exp=0
+[ Alice -    DEBUG] transport.py: 83 - BUILD seq=0 | base=0 n=0 inbuf=0
+[ Alice -    DEBUG] transport.py: 83 - TIMER start | base=0 n=0 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - SEND data seq=0 | base=0 n=0 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - ACK advance → 1 | base=0 n=0 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - TIMER stop
+[   Bob -    DEBUG] transport.py: 83 - DELIVER seq=0 → exp=1
+[ Alice -    DEBUG] transport.py: 83 - BUILD seq=1 | base=1 n=1 inbuf=0
+[ Alice -    DEBUG] transport.py: 83 - TIMER start | base=1 n=1 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - SEND data seq=1 | base=1 n=1 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - ACK advance → 0 | base=1 n=1 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - TIMER stop
+[   Bob -    DEBUG] transport.py: 83 - DELIVER seq=1 → exp=0
+[ Alice -    DEBUG] transport.py: 83 - BUILD seq=0 | base=0 n=0 inbuf=0
+[ Alice -    DEBUG] transport.py: 83 - TIMER start | base=0 n=0 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - SEND data seq=0 | base=0 n=0 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - ACK advance → 1 | base=0 n=0 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - TIMER stop
+[   Bob -    DEBUG] transport.py: 83 - DELIVER seq=0 → exp=1
+[ Alice -    DEBUG] transport.py: 83 - BUILD seq=1 | base=1 n=1 inbuf=0
+[ Alice -    DEBUG] transport.py: 83 - TIMER start | base=1 n=1 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - SEND data seq=1 | base=1 n=1 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - ACK advance → 0 | base=1 n=1 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - TIMER stop
+[   Bob -    DEBUG] transport.py: 83 - DELIVER seq=1 → exp=0
+alice: b'KQCKRBWWNCOCOBSUZYNKWLUHPRVYTDQZWINBNHIA'
+bob:   b'KQCKRBWWNCOCOBSUZYNKWLUHPRVYTDQZWINBNHIA'
+[Alice stats] sent=10 rtx=0 timeouts=0 dupACKs=0 corrupt_d=0 corrupt_ack=0
+[Bob   stats] sent=0 rtx=0 timeouts=0 dupACKs=0 corrupt_d=0 corrupt_ack=0
+Finished!
+
+PACKET_NUM = 10
+PACKET_SIZE = 4
+RANDOM_SEED = 84737869
+RANDOM_RUN = True
+DROP_CHANCE = 0.4
+CORRUPT_CHANCE = 0.0
+DELAY_CHANCE = 0.0
+DELAY_AMOUNT = 1.0
+
+[ Alice -    DEBUG] transport.py: 83 - BUILD seq=0 | base=0 n=0 inbuf=0
+[ Alice -    DEBUG] transport.py: 83 - TIMER start | base=0 n=0 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - SEND data seq=0 | base=0 n=0 inbuf=1
+[ Alice -  WARNING]   network.py: 27 - Dropping <DATA seq=0 ack=-1 len=4 cksum=0x5d54>
+[ Alice -    DEBUG] transport.py: 83 - BUILD seq=1 | base=0 n=1 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - SEND data seq=1 | base=0 n=1 inbuf=2
+[ Alice -  WARNING]   network.py: 27 - Dropping <DATA seq=1 ack=-1 len=4 cksum=0x6264>
+[ Alice -    DEBUG] transport.py: 83 - BUILD seq=2 | base=0 n=2 inbuf=2
+[ Alice -    DEBUG] transport.py: 83 - SEND data seq=2 | base=0 n=2 inbuf=3
+[ Alice -    DEBUG] transport.py: 83 - ACK dup  = 0 | base=0 n=2 inbuf=3
+[   Bob -    DEBUG] transport.py: 83 - DROP oo seq=2 → reACK 0
+[ Alice -    DEBUG] transport.py: 83 - BUILD seq=3 | base=0 n=3 inbuf=3
+[ Alice -    DEBUG] transport.py: 83 - SEND data seq=3 | base=0 n=3 inbuf=4
+[ Alice -  WARNING]   network.py: 27 - Dropping <DATA seq=3 ack=-1 len=4 cksum=0x746f>
+[ Alice -    DEBUG] transport.py: 83 - BUILD seq=4 | base=0 n=4 inbuf=4
+[ Alice -    DEBUG] transport.py: 83 - SEND data seq=4 | base=0 n=4 inbuf=5
+[ Alice -    DEBUG] transport.py: 83 - ACK dup  = 0 | base=0 n=4 inbuf=5
+[   Bob -    DEBUG] transport.py: 83 - DROP oo seq=4 → reACK 0
+[ Alice -    DEBUG] transport.py: 83 - APP queue (full) q=1 | base=0 n=5 inbuf=5
+[ Alice -    DEBUG] transport.py: 83 - APP queue (full) q=2 | base=0 n=5 inbuf=5
+[ Alice -    DEBUG] transport.py: 83 - APP queue (full) q=3 | base=0 n=5 inbuf=5
+[ Alice -    DEBUG] transport.py: 83 - APP queue (full) q=4 | base=0 n=5 inbuf=5
+[ Alice -    DEBUG] transport.py: 83 - APP queue (full) q=5 | base=0 n=5 inbuf=5
+[ Alice -    DEBUG] transport.py: 83 - TIMEOUT → RTX 0..5 | base=0 n=5 inbuf=5
+[ Alice -  WARNING]   network.py: 27 - Dropping <DATA seq=0 ack=-1 len=4 cksum=0x5d54>
+[   Bob -  WARNING]   network.py: 27 - Dropping <ACK seq=0 ack=0 len=0 cksum=0xffff>
+[   Bob -    DEBUG] transport.py: 83 - DROP oo seq=1 → reACK 0
+[ Alice -  WARNING]   network.py: 27 - Dropping <DATA seq=2 ack=-1 len=4 cksum=0x6665>
+[ Alice -  WARNING]   network.py: 27 - Dropping <DATA seq=3 ack=-1 len=4 cksum=0x746f>
+[ Alice -    DEBUG] transport.py: 83 - ACK dup  = 0 | base=0 n=5 inbuf=5
+[   Bob -    DEBUG] transport.py: 83 - DROP oo seq=4 → reACK 0
+[ Alice -    DEBUG] transport.py: 83 - TIMEOUT → RTX 0..5 | base=0 n=5 inbuf=5
+[ Alice -    DEBUG] transport.py: 83 - ACK advance → 1 | base=0 n=5 inbuf=5
+[ Alice -    DEBUG] transport.py: 83 - BUILD seq=5 | base=1 n=5 inbuf=4
+[ Alice -    DEBUG] transport.py: 83 - SEND data seq=5 | base=1 n=5 inbuf=5
+[   Bob -  WARNING]   network.py: 27 - Dropping <ACK seq=0 ack=1 len=0 cksum=0xfffe>
+[   Bob -    DEBUG] transport.py: 83 - DROP oo seq=5 → reACK 1
+[   Bob -    DEBUG] transport.py: 83 - DELIVER seq=0 → exp=1
+[ Alice -    DEBUG] transport.py: 83 - ACK advance → 2 | base=1 n=6 inbuf=5
+[ Alice -    DEBUG] transport.py: 83 - BUILD seq=6 | base=2 n=6 inbuf=4
+[ Alice -    DEBUG] transport.py: 83 - SEND data seq=6 | base=2 n=6 inbuf=5
+[   Bob -  WARNING]   network.py: 27 - Dropping <ACK seq=0 ack=2 len=0 cksum=0xfffd>
+[   Bob -    DEBUG] transport.py: 83 - DROP oo seq=6 → reACK 2
+[   Bob -    DEBUG] transport.py: 83 - DELIVER seq=1 → exp=2
+[ Alice -  WARNING]   network.py: 27 - Dropping <DATA seq=2 ack=-1 len=4 cksum=0x6665>
+[   Bob -  WARNING]   network.py: 27 - Dropping <ACK seq=0 ack=2 len=0 cksum=0xfffd>
+[   Bob -    DEBUG] transport.py: 83 - DROP oo seq=3 → reACK 2
+[ Alice -  WARNING]   network.py: 27 - Dropping <DATA seq=4 ack=-1 len=4 cksum=0x7661>
+[ Alice -    DEBUG] transport.py: 83 - ACK dup  = 2 | base=2 n=7 inbuf=5
+[   Bob -    DEBUG] transport.py: 83 - DROP oo seq=5 → reACK 2
+[   Bob -  WARNING]   network.py: 27 - Dropping <ACK seq=0 ack=2 len=0 cksum=0xfffd>
+[   Bob -    DEBUG] transport.py: 83 - DROP oo seq=6 → reACK 2
+[ Alice -    DEBUG] transport.py: 83 - TIMEOUT → RTX 2..7 | base=2 n=7 inbuf=5
+[ Alice -    DEBUG] transport.py: 83 - ACK advance → 3 | base=2 n=7 inbuf=5
+[ Alice -    DEBUG] transport.py: 83 - BUILD seq=7 | base=3 n=7 inbuf=4
+[ Alice -    DEBUG] transport.py: 83 - SEND data seq=7 | base=3 n=7 inbuf=5
+[   Bob -  WARNING]   network.py: 27 - Dropping <ACK seq=0 ack=3 len=0 cksum=0xfffc>
+[   Bob -    DEBUG] transport.py: 83 - DROP oo seq=7 → reACK 3
+[   Bob -    DEBUG] transport.py: 83 - DELIVER seq=2 → exp=3
+[ Alice -  WARNING]   network.py: 27 - Dropping <DATA seq=3 ack=-1 len=4 cksum=0x746f>
+[ Alice -  WARNING]   network.py: 27 - Dropping <DATA seq=4 ack=-1 len=4 cksum=0x7661>
+[   Bob -  WARNING]   network.py: 27 - Dropping <ACK seq=0 ack=3 len=0 cksum=0xfffc>
+[   Bob -    DEBUG] transport.py: 83 - DROP oo seq=5 → reACK 3
+[ Alice -    DEBUG] transport.py: 83 - ACK dup  = 3 | base=3 n=8 inbuf=5
+[   Bob -    DEBUG] transport.py: 83 - DROP oo seq=6 → reACK 3
+[ Alice -    DEBUG] transport.py: 83 - ACK dup  = 3 | base=3 n=8 inbuf=5
+[   Bob -    DEBUG] transport.py: 83 - DROP oo seq=7 → reACK 3
+[ Alice -    DEBUG] transport.py: 83 - TIMEOUT → RTX 3..8 | base=3 n=8 inbuf=5
+[ Alice -  WARNING]   network.py: 27 - Dropping <DATA seq=3 ack=-1 len=4 cksum=0x746f>
+[ Alice -    DEBUG] transport.py: 83 - ACK dup  = 3 | base=3 n=8 inbuf=5
+[   Bob -    DEBUG] transport.py: 83 - DROP oo seq=4 → reACK 3
+[ Alice -  WARNING]   network.py: 27 - Dropping <DATA seq=5 ack=-1 len=4 cksum=0x6861>
+[ Alice -  WARNING]   network.py: 27 - Dropping <DATA seq=6 ack=-1 len=4 cksum=0x7368>
+[ Alice -    DEBUG] transport.py: 83 - ACK dup  = 3 | base=3 n=8 inbuf=5
+[   Bob -    DEBUG] transport.py: 83 - DROP oo seq=7 → reACK 3
+[ Alice -    DEBUG] transport.py: 83 - TIMEOUT → RTX 3..8 | base=3 n=8 inbuf=5
+[ Alice -    DEBUG] transport.py: 83 - ACK advance → 4 | base=3 n=8 inbuf=5
+[ Alice -    DEBUG] transport.py: 83 - BUILD seq=8 | base=4 n=8 inbuf=4
+[ Alice -    DEBUG] transport.py: 83 - SEND data seq=8 | base=4 n=8 inbuf=5
+[   Bob -  WARNING]   network.py: 27 - Dropping <ACK seq=0 ack=4 len=0 cksum=0xfffb>
+[   Bob -    DEBUG] transport.py: 83 - DROP oo seq=8 → reACK 4
+[   Bob -    DEBUG] transport.py: 83 - DELIVER seq=3 → exp=4
+[ Alice -    DEBUG] transport.py: 83 - ACK advance → 5 | base=4 n=9 inbuf=5
+[ Alice -    DEBUG] transport.py: 83 - BUILD seq=9 | base=5 n=9 inbuf=4
+[ Alice -    DEBUG] transport.py: 83 - SEND data seq=9 | base=5 n=9 inbuf=5
+[ Alice -  WARNING]   network.py: 27 - Dropping <DATA seq=9 ack=-1 len=4 cksum=0x5a67>
+[   Bob -    DEBUG] transport.py: 83 - DELIVER seq=4 → exp=5
+[ Alice -    DEBUG] transport.py: 83 - ACK advance → 6 | base=5 n=0 inbuf=5
+[   Bob -    DEBUG] transport.py: 83 - DELIVER seq=5 → exp=6
+[   Bob -  WARNING]   network.py: 27 - Dropping <ACK seq=0 ack=7 len=0 cksum=0xfff8>
+[   Bob -    DEBUG] transport.py: 83 - DELIVER seq=6 → exp=7
+[   Bob -  WARNING]   network.py: 27 - Dropping <ACK seq=0 ack=8 len=0 cksum=0xfff7>
+[   Bob -    DEBUG] transport.py: 83 - DELIVER seq=7 → exp=8
+[ Alice -  WARNING]   network.py: 27 - Dropping <DATA seq=8 ack=-1 len=4 cksum=0x7562>
+[   Bob -  WARNING]   network.py: 27 - Dropping <ACK seq=0 ack=8 len=0 cksum=0xfff7>
+[   Bob -    DEBUG] transport.py: 83 - DROP oo seq=9 → reACK 8
+[ Alice -    DEBUG] transport.py: 83 - TIMEOUT → RTX 6..0 | base=6 n=0 inbuf=4
+[   Bob -  WARNING]   network.py: 27 - Dropping <ACK seq=0 ack=8 len=0 cksum=0xfff7>
+[   Bob -    DEBUG] transport.py: 83 - DROP oo seq=6 → reACK 8
+[ Alice -    DEBUG] transport.py: 83 - ACK advance → 8 | base=6 n=0 inbuf=4
+[   Bob -    DEBUG] transport.py: 83 - DROP oo seq=7 → reACK 8
+[ Alice -  WARNING]   network.py: 27 - Dropping <DATA seq=8 ack=-1 len=4 cksum=0x7562>
+[ Alice -  WARNING]   network.py: 27 - Dropping <DATA seq=9 ack=-1 len=4 cksum=0x5a67>
+[ Alice -    DEBUG] transport.py: 83 - TIMEOUT → RTX 8..0 | base=8 n=0 inbuf=2
+[ Alice -  WARNING]   network.py: 27 - Dropping <DATA seq=8 ack=-1 len=4 cksum=0x7562>
+[ Alice -    DEBUG] transport.py: 83 - ACK dup  = 8 | base=8 n=0 inbuf=2
+[   Bob -    DEBUG] transport.py: 83 - DROP oo seq=9 → reACK 8
+[ Alice -    DEBUG] transport.py: 83 - TIMEOUT → RTX 8..0 | base=8 n=0 inbuf=2
+[ Alice -    DEBUG] transport.py: 83 - ACK advance → 9 | base=8 n=0 inbuf=2
+[   Bob -    DEBUG] transport.py: 83 - DELIVER seq=8 → exp=9
+[ Alice -  WARNING]   network.py: 27 - Dropping <DATA seq=9 ack=-1 len=4 cksum=0x5a67>
+[ Alice -    DEBUG] transport.py: 83 - TIMEOUT → RTX 9..0 | base=9 n=0 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - ACK advance → 0 | base=9 n=0 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - TIMER stop
+[   Bob -    DEBUG] transport.py: 83 - DELIVER seq=9 → exp=0
+alice: b'ZUHTQSLEBDWRHDCGDSEELLKKBAJNCSJECMGFTLQA'
+bob:   b'ZUHTQSLEBDWRHDCGDSEELLKKBAJNCSJECMGFTLQA'
+[Alice stats] sent=10 rtx=39 timeouts=9 dupACKs=9 corrupt_d=0 corrupt_ack=0
+[Bob   stats] sent=0 rtx=0 timeouts=0 dupACKs=0 corrupt_d=0 corrupt_ack=0
+Finished!
+
+
+PACKET_NUM = 10
+PACKET_SIZE = 4
+RANDOM_SEED = 84737869
+RANDOM_RUN = True
+DROP_CHANCE = 0.0
+CORRUPT_CHANCE = 0.0
+DELAY_CHANCE = 1.0
+DELAY_AMOUNT = 0.4
+
+[ Alice -    DEBUG] transport.py: 83 - BUILD seq=0 | base=0 n=0 inbuf=0
+[ Alice -    DEBUG] transport.py: 83 - TIMER start | base=0 n=0 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - SEND data seq=0 | base=0 n=0 inbuf=1
+[ Alice -  WARNING]   network.py: 37 - Delaying <DATA seq=0 ack=-1 len=4 cksum=0x665e>
+[ Alice -    DEBUG] transport.py: 83 - BUILD seq=1 | base=0 n=1 inbuf=1
+[ Alice -    DEBUG] transport.py: 83 - SEND data seq=1 | base=0 n=1 inbuf=2
+[ Alice -  WARNING]   network.py: 37 - Delaying <DATA seq=1 ack=-1 len=4 cksum=0x6b5e>
+[ Alice -    DEBUG] transport.py: 83 - BUILD seq=2 | base=0 n=2 inbuf=2
+[ Alice -    DEBUG] transport.py: 83 - SEND data seq=2 | base=0 n=2 inbuf=3
+[ Alice -  WARNING]   network.py: 37 - Delaying <DATA seq=2 ack=-1 len=4 cksum=0x6556>
+[ Alice -    DEBUG] transport.py: 83 - BUILD seq=3 | base=0 n=3 inbuf=3
+[ Alice -    DEBUG] transport.py: 83 - SEND data seq=3 | base=0 n=3 inbuf=4
+[ Alice -  WARNING]   network.py: 37 - Delaying <DATA seq=3 ack=-1 len=4 cksum=0x645b>
+[ Alice -    DEBUG] transport.py: 83 - BUILD seq=4 | base=0 n=4 inbuf=4
+[ Alice -    DEBUG] transport.py: 83 - SEND data seq=4 | base=0 n=4 inbuf=5
+[ Alice -  WARNING]   network.py: 37 - Delaying <DATA seq=4 ack=-1 len=4 cksum=0x675f>
+[ Alice -    DEBUG] transport.py: 83 - APP queue (full) q=1 | base=0 n=5 inbuf=5
+[ Alice -    DEBUG] transport.py: 83 - APP queue (full) q=2 | base=0 n=5 inbuf=5
+[ Alice -    DEBUG] transport.py: 83 - APP queue (full) q=3 | base=0 n=5 inbuf=5
+[ Alice -    DEBUG] transport.py: 83 - APP queue (full) q=4 | base=0 n=5 inbuf=5
+[ Alice -    DEBUG] transport.py: 83 - APP queue (full) q=5 | base=0 n=5 inbuf=5
+[   Bob -  WARNING]   network.py: 37 - Delaying <ACK seq=0 ack=1 len=0 cksum=0xfffe>
+[ Alice -    DEBUG] transport.py: 83 - TIMEOUT → RTX 0..5 | base=0 n=5 inbuf=5
+[ Alice -  WARNING]   network.py: 37 - Delaying <DATA seq=0 ack=-1 len=4 cksum=0x665e>
+[   Bob -    DEBUG] transport.py: 83 - DELIVER seq=0 → exp=1
+[   Bob -  WARNING]   network.py: 37 - Delaying <ACK seq=0 ack=1 len=0 cksum=0xfffe>
+[ Alice -  WARNING]   network.py: 37 - Delaying <DATA seq=1 ack=-1 len=4 cksum=0x6b5e>
+[   Bob -    DEBUG] transport.py: 83 - DROP oo seq=4 → reACK 1
+[ Alice -  WARNING]   network.py: 37 - Delaying <DATA seq=2 ack=-1 len=4 cksum=0x6556>
+[   Bob -  WARNING]   network.py: 37 - Delaying <ACK seq=0 ack=1 len=0 cksum=0xfffe>
+[ Alice -  WARNING]   network.py: 37 - Delaying <DATA seq=3 ack=-1 len=4 cksum=0x645b>
+[   Bob -    DEBUG] transport.py: 83 - DROP oo seq=3 → reACK 1
+[ Alice -  WARNING]   network.py: 37 - Delaying <DATA seq=4 ack=-1 len=4 cksum=0x675f>
+[   Bob -  WARNING]   network.py: 37 - Delaying <ACK seq=0 ack=1 len=0 cksum=0xfffe>
+[   Bob -    DEBUG] transport.py: 83 - DROP oo seq=2 → reACK 1
+[   Bob -  WARNING]   network.py: 37 - Delaying <ACK seq=0 ack=2 len=0 cksum=0xfffd>
+[   Bob -    DEBUG] transport.py: 83 - DELIVER seq=1 → exp=2
+[ Alice -    DEBUG] transport.py: 83 - ACK advance → 1 | base=0 n=5 inbuf=5
+[   Bob -  WARNING]   network.py: 37 - Delaying <ACK seq=0 ack=2 len=0 cksum=0xfffd>
+[ Alice -    DEBUG] transport.py: 83 - BUILD seq=5 | base=1 n=5 inbuf=4
+[ Alice -    DEBUG] transport.py: 83 - SEND data seq=5 | base=1 n=5 inbuf=5
+[ Alice -  WARNING]   network.py: 37 - Delaying <DATA seq=5 ack=-1 len=4 cksum=0x7756>
+[   Bob -    DEBUG] transport.py: 83 - DROP oo seq=0 → reACK 2
+[ Alice -    DEBUG] transport.py: 83 - ACK dup  = 1 | base=1 n=6 inbuf=5
+[   Bob -  WARNING]   network.py: 37 - Delaying <ACK seq=0 ack=2 len=0 cksum=0xfffd>
+[ Alice -    DEBUG] transport.py: 83 - ACK dup  = 1 | base=1 n=6 inbuf=5
+[   Bob -    DEBUG] transport.py: 83 - DROP oo seq=1 → reACK 2
+[ Alice -    DEBUG] transport.py: 83 - ACK dup  = 1 | base=1 n=6 inbuf=5
+[   Bob -  WARNING]   network.py: 37 - Delaying <ACK seq=0 ack=2 len=0 cksum=0xfffd>
+[ Alice -    DEBUG] transport.py: 83 - ACK advance → 2 | base=1 n=6 inbuf=5
+[   Bob -    DEBUG] transport.py: 83 - DROP oo seq=3 → reACK 2
+[ Alice -    DEBUG] transport.py: 83 - BUILD seq=6 | base=2 n=6 inbuf=4
+[ Alice -    DEBUG] transport.py: 83 - SEND data seq=6 | base=2 n=6 inbuf=5
+[ Alice -  WARNING]   network.py: 37 - Delaying <DATA seq=6 ack=-1 len=4 cksum=0x7661>
+[   Bob -  WARNING]   network.py: 37 - Delaying <ACK seq=0 ack=3 len=0 cksum=0xfffc>
+[   Bob -    DEBUG] transport.py: 83 - DELIVER seq=2 → exp=3
+[   Bob -  WARNING]   network.py: 37 - Delaying <ACK seq=0 ack=3 len=0 cksum=0xfffc>
+[   Bob -    DEBUG] transport.py: 83 - DROP oo seq=4 → reACK 3
+[ Alice -    DEBUG] transport.py: 83 - ACK dup  = 2 | base=2 n=7 inbuf=5
+[   Bob -  WARNING]   network.py: 37 - Delaying <ACK seq=0 ack=3 len=0 cksum=0xfffc>
+[   Bob -    DEBUG] transport.py: 83 - DROP oo seq=5 → reACK 3
+[ Alice -    DEBUG] transport.py: 83 - ACK dup  = 2 | base=2 n=7 inbuf=5
+[ Alice -    DEBUG] transport.py: 83 - ACK dup  = 2 | base=2 n=7 inbuf=5
+[ Alice -    DEBUG] transport.py: 83 - TIMEOUT → RTX 2..7 | base=2 n=7 inbuf=5
+[ Alice -  WARNING]   network.py: 37 - Delaying <DATA seq=2 ack=-1 len=4 cksum=0x6556>
+[ Alice -  WARNING]   network.py: 37 - Delaying <DATA seq=3 ack=-1 len=4 cksum=0x645b>
+[ Alice -  WARNING]   network.py: 37 - Delaying <DATA seq=4 ack=-1 len=4 cksum=0x675f>
+[   Bob -  WARNING]   network.py: 37 - Delaying <ACK seq=0 ack=3 len=0 cksum=0xfffc>
+[ Alice -  WARNING]   network.py: 37 - Delaying <DATA seq=5 ack=-1 len=4 cksum=0x7756>
+[   Bob -    DEBUG] transport.py: 83 - DROP oo seq=6 → reACK 3
+[ Alice -  WARNING]   network.py: 37 - Delaying <DATA seq=6 ack=-1 len=4 cksum=0x7661>
+[ Alice -    DEBUG] transport.py: 83 - ACK advance → 3 | base=2 n=7 inbuf=5
+[ Alice -    DEBUG] transport.py: 83 - BUILD seq=7 | base=3 n=7 inbuf=4
+[ Alice -    DEBUG] transport.py: 83 - SEND data seq=7 | base=3 n=7 inbuf=5
+[ Alice -  WARNING]   network.py: 37 - Delaying <DATA seq=7 ack=-1 len=4 cksum=0x6465>
+[ Alice -    DEBUG] transport.py: 83 - ACK dup  = 3 | base=3 n=8 inbuf=5
+[ Alice -    DEBUG] transport.py: 83 - ACK dup  = 3 | base=3 n=8 inbuf=5
+[   Bob -  WARNING]   network.py: 37 - Delaying <ACK seq=0 ack=3 len=0 cksum=0xfffc>
+[   Bob -    DEBUG] transport.py: 83 - DROP oo seq=2 → reACK 3
+[   Bob -  WARNING]   network.py: 37 - Delaying <ACK seq=0 ack=4 len=0 cksum=0xfffb>
+[ Alice -    DEBUG] transport.py: 83 - ACK dup  = 3 | base=3 n=8 inbuf=5
+[   Bob -    DEBUG] transport.py: 83 - DELIVER seq=3 → exp=4
+[ Alice -    DEBUG] transport.py: 83 - TIMEOUT → RTX 3..8 | base=3 n=8 inbuf=5
+[   Bob -  WARNING]   network.py: 37 - Delaying <ACK seq=0 ack=5 len=0 cksum=0xfffa>
+[ Alice -  WARNING]   network.py: 37 - Delaying <DATA seq=3 ack=-1 len=4 cksum=0x645b>
+[   Bob -    DEBUG] transport.py: 83 - DELIVER seq=4 → exp=5
+[ Alice -  WARNING]   network.py: 37 - Delaying <DATA seq=4 ack=-1 len=4 cksum=0x675f>
+[   Bob -  WARNING]   network.py: 37 - Delaying <ACK seq=0 ack=5 len=0 cksum=0xfffa>
+[ Alice -  WARNING]   network.py: 37 - Delaying <DATA seq=5 ack=-1 len=4 cksum=0x7756>
+[   Bob -    DEBUG] transport.py: 83 - DROP oo seq=6 → reACK 5
+[   Bob -  WARNING]   network.py: 37 - Delaying <ACK seq=0 ack=6 len=0 cksum=0xfff9>
+[ Alice -  WARNING]   network.py: 37 - Delaying <DATA seq=6 ack=-1 len=4 cksum=0x7661>
+[   Bob -    DEBUG] transport.py: 83 - DELIVER seq=5 → exp=6
+[   Bob -  WARNING]   network.py: 37 - Delaying <ACK seq=0 ack=6 len=0 cksum=0xfff9>
+[   Bob -    DEBUG] transport.py: 83 - DROP oo seq=7 → reACK 6
+[ Alice -  WARNING]   network.py: 37 - Delaying <DATA seq=7 ack=-1 len=4 cksum=0x6465>
+[ Alice -    DEBUG] transport.py: 83 - ACK dup  = 3 | base=3 n=8 inbuf=5
+[ Alice -    DEBUG] transport.py: 83 - ACK advance → 4 | base=3 n=8 inbuf=5
+[ Alice -    DEBUG] transport.py: 83 - BUILD seq=8 | base=4 n=8 inbuf=4
+[ Alice -    DEBUG] transport.py: 83 - SEND data seq=8 | base=4 n=8 inbuf=5
+[ Alice -  WARNING]   network.py: 37 - Delaying <DATA seq=8 ack=-1 len=4 cksum=0x644c>
+[ Alice -    DEBUG] transport.py: 83 - ACK advance → 5 | base=4 n=9 inbuf=5
+[ Alice -    DEBUG] transport.py: 83 - BUILD seq=9 | base=5 n=9 inbuf=4
+[   Bob -  WARNING]   network.py: 37 - Delaying <ACK seq=0 ack=6 len=0 cksum=0xfff9>
+[ Alice -    DEBUG] transport.py: 83 - SEND data seq=9 | base=5 n=9 inbuf=5
+[ Alice -  WARNING]   network.py: 37 - Delaying <DATA seq=9 ack=-1 len=4 cksum=0x5a47>
+[   Bob -    DEBUG] transport.py: 83 - DROP oo seq=3 → reACK 6
+[   Bob -  WARNING]   network.py: 37 - Delaying <ACK seq=0 ack=6 len=0 cksum=0xfff9>
+[ Alice -    DEBUG] transport.py: 83 - ACK dup  = 5 | base=5 n=0 inbuf=5
+[ Alice -    DEBUG] transport.py: 83 - ACK advance → 6 | base=5 n=0 inbuf=5
+[   Bob -    DEBUG] transport.py: 83 - DROP oo seq=4 → reACK 6
+[ Alice -    DEBUG] transport.py: 83 - ACK dup  = 6 | base=6 n=0 inbuf=4
+[   Bob -  WARNING]   network.py: 37 - Delaying <ACK seq=0 ack=6 len=0 cksum=0xfff9>
+[   Bob -    DEBUG] transport.py: 83 - DROP oo seq=5 → reACK 6
+[   Bob -  WARNING]   network.py: 37 - Delaying <ACK seq=0 ack=7 len=0 cksum=0xfff8>
+[   Bob -    DEBUG] transport.py: 83 - DELIVER seq=6 → exp=7
+[   Bob -  WARNING]   network.py: 37 - Delaying <ACK seq=0 ack=8 len=0 cksum=0xfff7>
+[   Bob -    DEBUG] transport.py: 83 - DELIVER seq=7 → exp=8
+[   Bob -  WARNING]   network.py: 37 - Delaying <ACK seq=0 ack=9 len=0 cksum=0xfff6>
+[   Bob -    DEBUG] transport.py: 83 - DELIVER seq=8 → exp=9
+[ Alice -    DEBUG] transport.py: 83 - ACK dup  = 6 | base=6 n=0 inbuf=4
+[   Bob -  WARNING]   network.py: 37 - Delaying <ACK seq=0 ack=0 len=0 cksum=0xffff>
+[ Alice -    DEBUG] transport.py: 83 - TIMER stop
+[   Bob -    DEBUG] transport.py: 83 - DELIVER seq=9 → exp=0
+alice: b'FVSILGHWXQBTTMGRMKKOCMEUAHHNWADPQUJTTXQU'
+bob:   b'FVSILGHWXQBTTMGRMKKOCMEUAHHNWADPQUJTTXQU'
+[Alice stats] sent=10 rtx=15 timeouts=3 dupACKs=13 corrupt_d=0 corrupt_ack=0
+[Bob   stats] sent=0 rtx=0 timeouts=0 dupACKs=0 corrupt_d=0 corrupt_ack=0
+Finished!
+
+PACKET_NUM = 10
+PACKET_SIZE = 4
+RANDOM_SEED = 84737869
+RANDOM_RUN = True
+DROP_CHANCE = 0.4
+CORRUPT_CHANCE = 0.3
+DELAY_CHANCE = 0.3
+DELAY_AMOUNT = 1.0
+self.timeout = 1.2  # Seconds
+
+[ Alice -    DEBUG] transport.py: 84 - BUILD seq=0 | base=0 n=0 inbuf=0
+[ Alice -    DEBUG] transport.py: 84 - TIMER start | base=0 n=0 inbuf=1
+[ Alice -    DEBUG] transport.py: 84 - SEND data seq=0 | base=0 n=0 inbuf=1
+[ Alice -  WARNING]   network.py: 27 - Dropping <DATA seq=0 ack=-1 len=4 cksum=0x6964>
+[ Alice -    DEBUG] transport.py: 84 - BUILD seq=1 | base=0 n=1 inbuf=1
+[ Alice -    DEBUG] transport.py: 84 - SEND data seq=1 | base=0 n=1 inbuf=2
+[ Alice -  WARNING]   network.py: 27 - Dropping <DATA seq=1 ack=-1 len=4 cksum=0x6a5e>
+[ Alice -    DEBUG] transport.py: 84 - BUILD seq=2 | base=0 n=2 inbuf=2
+[ Alice -    DEBUG] transport.py: 84 - SEND data seq=2 | base=0 n=2 inbuf=3
+[ Alice -    DEBUG] transport.py: 84 - ACK dup  = 0 | base=0 n=2 inbuf=3
+[   Bob -    DEBUG] transport.py: 84 - DROP oo seq=2 → reACK 0
+[ Alice -    DEBUG] transport.py: 84 - BUILD seq=3 | base=0 n=3 inbuf=3
+[ Alice -    DEBUG] transport.py: 84 - SEND data seq=3 | base=0 n=3 inbuf=4
+[ Alice -  WARNING]   network.py: 32 - Corrupting <DATA seq=3 ack=-1 len=4 cksum=0x6169>
+[ Alice -  WARNING]   network.py: 37 - Delaying <DATA seq=3 ack=-1 len=4 cksum=0x6169>
+[ Alice -    DEBUG] transport.py: 84 - BUILD seq=4 | base=0 n=4 inbuf=4
+[ Alice -    DEBUG] transport.py: 84 - SEND data seq=4 | base=0 n=4 inbuf=5
+[ Alice -  WARNING]   network.py: 27 - Dropping <DATA seq=4 ack=-1 len=4 cksum=0x7058>
+[ Alice -    DEBUG] transport.py: 84 - APP queue (full) q=1 | base=0 n=5 inbuf=5
+[ Alice -    DEBUG] transport.py: 84 - APP queue (full) q=2 | base=0 n=5 inbuf=5
+[ Alice -    DEBUG] transport.py: 84 - APP queue (full) q=3 | base=0 n=5 inbuf=5
+[ Alice -    DEBUG] transport.py: 84 - APP queue (full) q=4 | base=0 n=5 inbuf=5
+[ Alice -    DEBUG] transport.py: 84 - APP queue (full) q=5 | base=0 n=5 inbuf=5
+[   Bob -  WARNING]   network.py: 37 - Delaying <ACK seq=0 ack=0 len=0 cksum=0xffff>
+[   Bob -    DEBUG] transport.py: 84 - RX DATA corrupt → reACK 0
+[ Alice -    DEBUG] transport.py: 84 - TIMEOUT → RTX 0..5 | base=0 n=5 inbuf=5
+[ Alice -  WARNING]   network.py: 32 - Corrupting <DATA seq=0 ack=-1 len=4 cksum=0x6964>
+[   Bob -  WARNING]   network.py: 32 - Corrupting <ACK seq=0 ack=0 len=0 cksum=0xffff>
+[ Alice -    DEBUG] transport.py: 84 - ACK dup  = 0 | base=0 n=5 inbuf=5
+[   Bob -    DEBUG] transport.py: 84 - RX DATA corrupt → reACK 0
+[ Alice -  WARNING]   network.py: 32 - Corrupting <DATA seq=1 ack=-1 len=4 cksum=0x6a5e>
+[   Bob -  WARNING]   network.py: 27 - Dropping <ACK seq=0 ack=0 len=0 cksum=0xffff>
+[   Bob -    DEBUG] transport.py: 84 - RX DATA corrupt → reACK 0
+[ Alice -  WARNING]   network.py: 32 - Corrupting <DATA seq=2 ack=-1 len=4 cksum=0x6a4e>
+[   Bob -  WARNING]   network.py: 32 - Corrupting <ACK seq=0 ack=0 len=0 cksum=0xffff>
+[ Alice -    DEBUG] transport.py: 84 - ACK dup  = 0 | base=0 n=5 inbuf=5
+[   Bob -    DEBUG] transport.py: 84 - RX DATA corrupt → reACK 0
+[ Alice -  WARNING]   network.py: 32 - Corrupting <DATA seq=3 ack=-1 len=4 cksum=0x6169>
+[ Alice -  WARNING]   network.py: 37 - Delaying <DATA seq=3 ack=-1 len=4 cksum=0x6169>
+[ Alice -  WARNING]   network.py: 27 - Dropping <DATA seq=4 ack=-1 len=4 cksum=0x7058>
+[ Alice -    DEBUG] transport.py: 84 - ACK dup  = 0 | base=0 n=5 inbuf=5
+[   Bob -  WARNING]   network.py: 27 - Dropping <ACK seq=0 ack=0 len=0 cksum=0xffff>
+[   Bob -    DEBUG] transport.py: 84 - RX DATA corrupt → reACK 0
+[ Alice -    DEBUG] transport.py: 84 - TIMEOUT → RTX 0..5 | base=0 n=5 inbuf=5
+[   Bob -  WARNING]   network.py: 27 - Dropping <ACK seq=0 ack=1 len=0 cksum=0xfffe>
+[   Bob -    DEBUG] transport.py: 84 - DELIVER seq=0 → exp=1
+[   Bob -  WARNING]   network.py: 27 - Dropping <ACK seq=0 ack=2 len=0 cksum=0xfffd>
+[   Bob -    DEBUG] transport.py: 84 - DELIVER seq=1 → exp=2
+[ Alice -  WARNING]   network.py: 32 - Corrupting <DATA seq=2 ack=-1 len=4 cksum=0x6a4e>
+[ Alice -  WARNING]   network.py: 37 - Delaying <DATA seq=2 ack=-1 len=4 cksum=0x6a4e>
+[ Alice -  WARNING]   network.py: 27 - Dropping <DATA seq=3 ack=-1 len=4 cksum=0x6169>
+[   Bob -  WARNING]   network.py: 32 - Corrupting <ACK seq=0 ack=2 len=0 cksum=0xfffd>
+[ Alice -    DEBUG] transport.py: 84 - ACK advance → 2 | base=0 n=5 inbuf=5
+[ Alice -    DEBUG] transport.py: 84 - BUILD seq=5 | base=2 n=5 inbuf=3
+[ Alice -    DEBUG] transport.py: 84 - SEND data seq=5 | base=2 n=5 inbuf=4
+[   Bob -  WARNING]   network.py: 27 - Dropping <ACK seq=0 ack=2 len=0 cksum=0xfffd>
+[   Bob -    DEBUG] transport.py: 84 - DROP oo seq=5 → reACK 2
+[ Alice -    DEBUG] transport.py: 84 - BUILD seq=6 | base=2 n=6 inbuf=4
+[ Alice -    DEBUG] transport.py: 84 - SEND data seq=6 | base=2 n=6 inbuf=5
+[ Alice -    DEBUG] transport.py: 84 - ACK dup  = 2 | base=2 n=6 inbuf=5
+[   Bob -    DEBUG] transport.py: 84 - DROP oo seq=6 → reACK 2
+[   Bob -    DEBUG] transport.py: 84 - DROP oo seq=4 → reACK 2
+[   Bob -  WARNING]   network.py: 27 - Dropping <ACK seq=0 ack=2 len=0 cksum=0xfffd>
+[   Bob -    DEBUG] transport.py: 84 - DROP oo seq=5 → reACK 2
+[   Bob -  WARNING]   network.py: 27 - Dropping <ACK seq=0 ack=2 len=0 cksum=0xfffd>
+[   Bob -    DEBUG] transport.py: 84 - DROP oo seq=6 → reACK 2
+[   Bob -  WARNING]   network.py: 27 - Dropping <ACK seq=0 ack=2 len=0 cksum=0xfffd>
+[   Bob -    DEBUG] transport.py: 84 - RX DATA corrupt → reACK 2
+[ Alice -    DEBUG] transport.py: 84 - TIMEOUT → RTX 2..7 | base=2 n=7 inbuf=5
+[ Alice -  WARNING]   network.py: 27 - Dropping <DATA seq=2 ack=-1 len=4 cksum=0x6a4e>
+[ Alice -  WARNING]   network.py: 32 - Corrupting <DATA seq=3 ack=-1 len=4 cksum=0x6169>
+[ Alice -  WARNING]   network.py: 37 - Delaying <DATA seq=3 ack=-1 len=4 cksum=0x6169>
+[ Alice -  WARNING]   network.py: 27 - Dropping <DATA seq=4 ack=-1 len=4 cksum=0x7058>
+[ Alice -  WARNING]   network.py: 27 - Dropping <DATA seq=5 ack=-1 len=4 cksum=0x5d5d>
+[ Alice -  WARNING]   network.py: 27 - Dropping <DATA seq=6 ack=-1 len=4 cksum=0x7166>
+[   Bob -  WARNING]   network.py: 27 - Dropping <ACK seq=0 ack=2 len=0 cksum=0xfffd>
+[   Bob -    DEBUG] transport.py: 84 - RX DATA corrupt → reACK 2
+[ Alice -    DEBUG] transport.py: 84 - TIMEOUT → RTX 2..7 | base=2 n=7 inbuf=5
+[ Alice -  WARNING]   network.py: 37 - Delaying <DATA seq=2 ack=-1 len=4 cksum=0x6a4e>
+[ Alice -  WARNING]   network.py: 27 - Dropping <DATA seq=3 ack=-1 len=4 cksum=0x6169>
+[ Alice -  WARNING]   network.py: 37 - Delaying <DATA seq=4 ack=-1 len=4 cksum=0x7058>
+[   Bob -  WARNING]   network.py: 27 - Dropping <ACK seq=0 ack=2 len=0 cksum=0xfffd>
+[   Bob -    DEBUG] transport.py: 84 - DROP oo seq=5 → reACK 2
+[ Alice -  WARNING]   network.py: 27 - Dropping <DATA seq=6 ack=-1 len=4 cksum=0x7166>
+[ Alice -    DEBUG] transport.py: 84 - ACK advance → 3 | base=2 n=7 inbuf=5
+[ Alice -    DEBUG] transport.py: 84 - BUILD seq=7 | base=3 n=7 inbuf=4
+[ Alice -    DEBUG] transport.py: 84 - SEND data seq=7 | base=3 n=7 inbuf=5
+[ Alice -  WARNING]   network.py: 27 - Dropping <DATA seq=7 ack=-1 len=4 cksum=0x6651>
+[   Bob -    DEBUG] transport.py: 84 - DELIVER seq=2 → exp=3
+[   Bob -  WARNING]   network.py: 27 - Dropping <ACK seq=0 ack=3 len=0 cksum=0xfffc>
+[   Bob -    DEBUG] transport.py: 84 - DROP oo seq=4 → reACK 3
+[ Alice -    DEBUG] transport.py: 84 - TIMEOUT → RTX 3..8 | base=3 n=8 inbuf=5
+[ Alice -  WARNING]   network.py: 32 - Corrupting <DATA seq=3 ack=-1 len=4 cksum=0x6169>
+[   Bob -  WARNING]   network.py: 27 - Dropping <ACK seq=0 ack=3 len=0 cksum=0xfffc>
+[   Bob -    DEBUG] transport.py: 84 - RX DATA corrupt → reACK 3
+[ Alice -  WARNING]   network.py: 27 - Dropping <DATA seq=4 ack=-1 len=4 cksum=0x7058>
+[ Alice -    DEBUG] transport.py: 84 - ACK dup  = 3 | base=3 n=8 inbuf=5
+[   Bob -    DEBUG] transport.py: 84 - DROP oo seq=5 → reACK 3
+[   Bob -  WARNING]   network.py: 27 - Dropping <ACK seq=0 ack=3 len=0 cksum=0xfffc>
+[   Bob -    DEBUG] transport.py: 84 - DROP oo seq=6 → reACK 3
+[ Alice -  WARNING]   network.py: 27 - Dropping <DATA seq=7 ack=-1 len=4 cksum=0x6651>
+[ Alice -    DEBUG] transport.py: 84 - TIMEOUT → RTX 3..8 | base=3 n=8 inbuf=5
+[   Bob -  WARNING]   network.py: 27 - Dropping <ACK seq=0 ack=4 len=0 cksum=0xfffb>
+[   Bob -    DEBUG] transport.py: 84 - DELIVER seq=3 → exp=4
+[   Bob -  WARNING]   network.py: 27 - Dropping <ACK seq=0 ack=5 len=0 cksum=0xfffa>
+[   Bob -    DEBUG] transport.py: 84 - DELIVER seq=4 → exp=5
+[ Alice -  WARNING]   network.py: 27 - Dropping <DATA seq=5 ack=-1 len=4 cksum=0x5d5d>
+[ Alice -  WARNING]   network.py: 32 - Corrupting <DATA seq=6 ack=-1 len=4 cksum=0x7166>
+[   Bob -  WARNING]   network.py: 37 - Delaying <ACK seq=0 ack=5 len=0 cksum=0xfffa>
+[   Bob -    DEBUG] transport.py: 84 - RX DATA corrupt → reACK 5
+[   Bob -  WARNING]   network.py: 27 - Dropping <ACK seq=0 ack=5 len=0 cksum=0xfffa>
+[   Bob -    DEBUG] transport.py: 84 - DROP oo seq=7 → reACK 5
+[ Alice -    DEBUG] transport.py: 84 - ACK advance → 5 | base=3 n=8 inbuf=5
+[ Alice -    DEBUG] transport.py: 84 - BUILD seq=8 | base=5 n=8 inbuf=3
+[ Alice -    DEBUG] transport.py: 84 - SEND data seq=8 | base=5 n=8 inbuf=4
+[ Alice -  WARNING]   network.py: 37 - Delaying <DATA seq=8 ack=-1 len=4 cksum=0x6b53>
+[ Alice -    DEBUG] transport.py: 84 - BUILD seq=9 | base=5 n=9 inbuf=4
+[ Alice -    DEBUG] transport.py: 84 - SEND data seq=9 | base=5 n=9 inbuf=5
+[ Alice -  WARNING]   network.py: 32 - Corrupting <DATA seq=9 ack=-1 len=4 cksum=0x534f>
+[   Bob -  WARNING]   network.py: 27 - Dropping <ACK seq=0 ack=5 len=0 cksum=0xfffa>
+[   Bob -    DEBUG] transport.py: 84 - RX DATA corrupt → reACK 5
+[   Bob -  WARNING]   network.py: 27 - Dropping <ACK seq=0 ack=5 len=0 cksum=0xfffa>
+[   Bob -    DEBUG] transport.py: 84 - DROP oo seq=8 → reACK 5
+[ Alice -    DEBUG] transport.py: 84 - TIMEOUT → RTX 5..0 | base=5 n=0 inbuf=5
+[ Alice -  WARNING]   network.py: 27 - Dropping <DATA seq=5 ack=-1 len=4 cksum=0x5d5d>
+[ Alice -  WARNING]   network.py: 27 - Dropping <DATA seq=6 ack=-1 len=4 cksum=0x7166>
+[ Alice -  WARNING]   network.py: 32 - Corrupting <DATA seq=7 ack=-1 len=4 cksum=0x6651>
+[   Bob -  WARNING]   network.py: 27 - Dropping <ACK seq=0 ack=5 len=0 cksum=0xfffa>
+[   Bob -    DEBUG] transport.py: 84 - RX DATA corrupt → reACK 5
+[   Bob -  WARNING]   network.py: 32 - Corrupting <ACK seq=0 ack=5 len=0 cksum=0xfffa>
+[ Alice -    DEBUG] transport.py: 84 - ACK dup  = 5 | base=5 n=0 inbuf=5
+[   Bob -    DEBUG] transport.py: 84 - DROP oo seq=8 → reACK 5
+[ Alice -  WARNING]   network.py: 27 - Dropping <DATA seq=9 ack=-1 len=4 cksum=0x534f>
+[ Alice -    DEBUG] transport.py: 84 - TIMEOUT → RTX 5..0 | base=5 n=0 inbuf=5
+[ Alice -  WARNING]   network.py: 37 - Delaying <DATA seq=5 ack=-1 len=4 cksum=0x5d5d>
+[ Alice -    DEBUG] transport.py: 84 - ACK dup  = 5 | base=5 n=0 inbuf=5
+[   Bob -    DEBUG] transport.py: 84 - DROP oo seq=6 → reACK 5
+[   Bob -  WARNING]   network.py: 27 - Dropping <ACK seq=0 ack=5 len=0 cksum=0xfffa>
+[   Bob -    DEBUG] transport.py: 84 - DROP oo seq=7 → reACK 5
+[   Bob -  WARNING]   network.py: 32 - Corrupting <ACK seq=0 ack=5 len=0 cksum=0xfffa>
+[ Alice -    DEBUG] transport.py: 84 - ACK dup  = 5 | base=5 n=0 inbuf=5
+[   Bob -    DEBUG] transport.py: 84 - DROP oo seq=8 → reACK 5
+[   Bob -  WARNING]   network.py: 27 - Dropping <ACK seq=0 ack=5 len=0 cksum=0xfffa>
+[   Bob -    DEBUG] transport.py: 84 - DROP oo seq=9 → reACK 5
+[   Bob -  WARNING]   network.py: 27 - Dropping <ACK seq=0 ack=6 len=0 cksum=0xfff9>
+[   Bob -    DEBUG] transport.py: 84 - DELIVER seq=5 → exp=6
+[ Alice -    DEBUG] transport.py: 84 - TIMEOUT → RTX 5..0 | base=5 n=0 inbuf=5
+[ Alice -  WARNING]   network.py: 37 - Delaying <DATA seq=5 ack=-1 len=4 cksum=0x5d5d>
+[ Alice -    DEBUG] transport.py: 84 - ACK advance → 7 | base=5 n=0 inbuf=5
+[   Bob -    DEBUG] transport.py: 84 - DELIVER seq=6 → exp=7
+[ Alice -  WARNING]   network.py: 32 - Corrupting <DATA seq=7 ack=-1 len=4 cksum=0x6651>
+[   Bob -  WARNING]   network.py: 27 - Dropping <ACK seq=0 ack=7 len=0 cksum=0xfff8>
+[   Bob -    DEBUG] transport.py: 84 - RX DATA corrupt → reACK 7
+[ Alice -  WARNING]   network.py: 27 - Dropping <DATA seq=8 ack=-1 len=4 cksum=0x6b53>
+[ Alice -  WARNING]   network.py: 27 - Dropping <DATA seq=9 ack=-1 len=4 cksum=0x534f>
+[   Bob -  WARNING]   network.py: 32 - Corrupting <ACK seq=0 ack=7 len=0 cksum=0xfff8>
+[ Alice -    DEBUG] transport.py: 84 - ACK dup  = 7 | base=7 n=0 inbuf=3
+[   Bob -    DEBUG] transport.py: 84 - DROP oo seq=5 → reACK 7
+[ Alice -    DEBUG] transport.py: 84 - TIMEOUT → RTX 7..0 | base=7 n=0 inbuf=3
+[ Alice -    DEBUG] transport.py: 84 - ACK advance → 8 | base=7 n=0 inbuf=3
+[   Bob -    DEBUG] transport.py: 84 - DELIVER seq=7 → exp=8
+[ Alice -  WARNING]   network.py: 37 - Delaying <DATA seq=8 ack=-1 len=4 cksum=0x6b53>
+[   Bob -  WARNING]   network.py: 27 - Dropping <ACK seq=0 ack=8 len=0 cksum=0xfff7>
+[   Bob -    DEBUG] transport.py: 84 - DROP oo seq=9 → reACK 8
+[   Bob -  WARNING]   network.py: 37 - Delaying <ACK seq=0 ack=9 len=0 cksum=0xfff6>
+[   Bob -    DEBUG] transport.py: 84 - DELIVER seq=8 → exp=9
+[ Alice -    DEBUG] transport.py: 84 - TIMEOUT → RTX 8..0 | base=8 n=0 inbuf=2
+[ Alice -  WARNING]   network.py: 37 - Delaying <DATA seq=8 ack=-1 len=4 cksum=0x6b53>
+[ Alice -  WARNING]   network.py: 27 - Dropping <DATA seq=9 ack=-1 len=4 cksum=0x534f>
+[ Alice -    DEBUG] transport.py: 84 - ACK advance → 9 | base=8 n=0 inbuf=2
+[   Bob -  WARNING]   network.py: 27 - Dropping <ACK seq=0 ack=9 len=0 cksum=0xfff6>
+[   Bob -    DEBUG] transport.py: 84 - DROP oo seq=8 → reACK 9
+[ Alice -    DEBUG] transport.py: 84 - TIMEOUT → RTX 9..0 | base=9 n=0 inbuf=1
+[ Alice -  WARNING]   network.py: 27 - Dropping <DATA seq=9 ack=-1 len=4 cksum=0x534f>
+[ Alice -    DEBUG] transport.py: 84 - TIMEOUT → RTX 9..0 | base=9 n=0 inbuf=1
+[ Alice -  WARNING]   network.py: 37 - Delaying <DATA seq=9 ack=-1 len=4 cksum=0x534f>
+[   Bob -  WARNING]   network.py: 37 - Delaying <ACK seq=0 ack=0 len=0 cksum=0xffff>
+[ Alice -    DEBUG] transport.py: 84 - TIMER stop
+[   Bob -    DEBUG] transport.py: 84 - DELIVER seq=9 → exp=0
+alice: b'KNKKISLKQVDWFGXJBQMPPQRJLOBBCMVXJTJNSWYN'
+bob:   b'KNKKISLKQVDWFGXJBQMPPQRJLOBBCMVXJTJNSWYN'
+[Alice stats] sent=10 rtx=54 timeouts=13 dupACKs=10 corrupt_d=0 corrupt_ack=0
+[Bob   stats] sent=0 rtx=0 timeouts=0 dupACKs=0 corrupt_d=12 corrupt_ack=0
+Finished!
+
