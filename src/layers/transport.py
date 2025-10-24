@@ -1,13 +1,8 @@
 from copy import copy
 from threading import Timer
-
 from packet import Packet 
-
 from collections import deque
-
 from threading import RLock
-
-
 
 class TransportLayer:
     """The transport layer receives chunks of data from the application layer
@@ -99,44 +94,34 @@ class TransportLayer:
         with self.lock:
             if self.closed:
                 return
-
             # Window full -> queue app data 
             if len(self.send_buffer) >= self.send_window:
                 self.app_queue.append(binary_data)
                 self.dbg(f"APP queue (full) q={len(self.app_queue)} | {self.st()}")
                 return
-
             # Seqnum not inside window -> queue app data 
             if not self.in_window(self.next_seqnum, self.base, self.send_window):
                 self.app_queue.append(binary_data)
                 self.dbg(f"APP queue (win) q={len(self.app_queue)} | {self.st()}")
                 return 
-            
             assert self.in_window(self.next_seqnum, self.base, self.send_window)
-
-            # Build segment at snapshot "olf_next"
+            # Build segment at "olf_next"
             old_next = self.next_seqnum
             self.dbg(f"BUILD seq={old_next} | {self.st()}")
-
             pkt = Packet.make_data(old_next, binary_data)
             assert pkt.seqnum == old_next, f"Packet seq mismatch: built {pkt.seqnum}, expected {old_next}"
-
             was_empty = (len(self.send_buffer) == 0)
             self.send_buffer[old_next] = pkt
-
             # Start timer for oldest unACKed if nothing in flight before 
             if was_empty and not self.timer_active:
                 self.reset_timer(self.on_timeout)
                 self.dbg(f"TIMER start | {self.st()}")
-
             # Send the packet down to network
             self.dbg(f"SEND data seq={old_next} | {self.st()}")
             self.network_layer.send(copy(pkt))
             self.send += 1
-
             # Advance next seqnum modulo space
             self.next_seqnum = self.mod_seqnum(old_next + 1)
-
             inflight_after = len(self.send_buffer)
             assert inflight_after <= self.send_window
             assert self.timer_active == (inflight_after > 0)
@@ -160,14 +145,12 @@ class TransportLayer:
         with self.lock:
             if self.closed:
                 return
-            
             # ACK --> sender side. acknum >= 0 signifies an ACK segment 
             if packet.acknum >= 0:
                 if packet.is_corrupt():
                     self.rx_corrupted_acks += 1
                     self.dbg("RX ACK corrupt → ignore")
                     return 
-                
                 acknum = packet.acknum % self.seqnum_space
                 if self.ack_advances(acknum):
                     # Slide base up to acknum, with exclusize pop
@@ -177,23 +160,19 @@ class TransportLayer:
                         self.send_buffer.pop(seq, None)
                         seq = self.mod_seqnum(seq + 1)
                     self.base = acknum
-
                     # Timer management, stop if no inflight, else restart for new oldest 
                     if not self.send_buffer:
                         self.next_seqnum = self.base
                         self.stop_timer()
                     else:
                         self.reset_timer(self.on_timeout)
-
                     # Try to send queued app data 
                     self.drain_app_queue()
-                
                 else:
                     # Duplicate cumulative ACK
                     self.duplicate_acks += 1
                     self.dbg(f"ACK dup  = {acknum} | {self.st()}")
                 return 
-            
             # Data -> receiver side 
             if packet.is_corrupt():
                 # Corrupt data --> re-ACK expected_seqnum
@@ -204,13 +183,11 @@ class TransportLayer:
                 self.network_layer.send(ack)
                 self.dbg(f"RX DATA corrupt → reACK {self.expected_seqnum}")
                 return
-            
             seq = packet.seqnum % self.seqnum_space
             if seq == self.expected_seqnum:
                 # Deliver in-order -> deliver up
                 if self.application_layer:
                     self.application_layer.receive_from_transport(packet.data)
-
                 # Advance receiver state and ACK next expected
                 self.expected_seqnum = self.mod_seqnum(self.expected_seqnum + 1)
                 self.last_ack_send = self.expected_seqnum
@@ -264,7 +241,6 @@ class TransportLayer:
                 return
             self.timeout_num += 1
             self.dbg(f"TIMEOUT → RTX {self.base}..{self.next_seqnum} | {self.st()}")
-
             # Go Back N: resend everything unACKed
             seq = self.base 
             while seq != self.next_seqnum:
@@ -273,7 +249,6 @@ class TransportLayer:
                     self.network_layer.send(copy(pkt))
                     self.retransmitted += 1
                 seq = self.mod_seqnum(seq + 1)
-            
             if self.closed:
                 return
             if self.send_buffer:
@@ -286,5 +261,5 @@ class TransportLayer:
 
     def stats(self):
         return (f"sent={self.send} rtx={self.retransmitted} "
-                f"timeouts={self.timeout_num} dupACKs={self.duplicate_acks} "
-                f"corrupt_d={self.rx_corrupted_data} corrupt_ack={self.rx_corrupted_acks}")
+            f"timeouts={self.timeout_num} dupACKs={self.duplicate_acks} "
+            f"corrupt_d={self.rx_corrupted_data} corrupt_ack={self.rx_corrupted_acks}")
